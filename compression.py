@@ -1,17 +1,18 @@
 import sys
 import numpy as np
-import numpy.random as random
+import random
+import numpy.random as npr
 import scipy.misc
 
-def compression(image, k, maxIter):
+def compression(image, k, maxIter, stochastic = True):
 	"""
 	Computes a matrix factorization of an image in order to compress it
 	Thanks to gradient descent
 	image = P * Q
 	"""
 	# Random initial centroids
-	p = random.rand(image.shape[0], k, image.shape[2])
-	q = random.rand(k, image.shape[1], image.shape[2])
+	p = npr.rand(image.shape[0], k, image.shape[2])
+	q = npr.rand(k, image.shape[1], image.shape[2])
 
 	# Normalization
 	normImage = np.copy(image)/255
@@ -19,8 +20,14 @@ def compression(image, k, maxIter):
 	for iteration in range(maxIter):
 		print("Iteration {} / {}".format(iteration+1, maxIter))
 		# Loop over all pixel
-		for i in range(image.shape[0]):
-			for j in range(image.shape[1]):
+		li = list(range(image.shape[0]))
+		lj = list(range(image.shape[1]))
+		if stochastic:
+			random.shuffle(li)
+		for i in li :
+			if stochastic:
+				random.shuffle(lj)
+			for j in lj:
 				for c in range(image.shape[2]):
 					pixel = normImage[i,j,c]
 					eij = np.dot(p[i,:,c],q[:,j,c]) - pixel
