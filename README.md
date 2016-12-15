@@ -14,6 +14,13 @@ python3.5 compression.py FileName.png [-k int] [-i int] [-o resultFileName]
 This commands computes the compression of the image FileName with dimension k, and i iteration maximum for gradient descent.   
 
 ## Results
+```
+python3.5 performances.py
+```
+This command computes the compressed image for k = 10, 20, 30, 40, 50 (y axis) with a learning rate = 1/k for iteration = 1, 11, 21, 31, 41, 51, 61, 71, 81, 91 (x axis).  
+![Result](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/Results.png)
+They are not a state of the art compression. Eigen values have better results.  
+
 
 ## Libraries
 Needs numpy, scipy and sys. Compiled with python3.5
