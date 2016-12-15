@@ -18,9 +18,20 @@ This commands computes the compression of the image FileName with dimension k, a
 python3.5 performances.py
 ```
 This command computes the compressed image for k = 10, 20, 30, 40, 50 (y axis) with a learning rate = 1/k for iteration = 1, 11, 21, 31, 41, 51, 61, 71, 81, 91 (x axis).  
-![Result](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/Results.png)
-They are not a state of the art compression. Eigen values have better results.  
+![ResultGD](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/GDResults.png)  
 
+The following image shows the advantage of stochastic gradient descent :  
+![ResultSGD](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/SGDResults.png)  
+-	Error is more uniform
+-	Convergence is faster
+
+This impression is confirmed by the following graph of error :  
+![SGDError](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/SGDError.png)  
+
+Compared to the gradient descent mean error :  
+![GDError](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/GDError.png)  
+
+They are not a state of the art compression. Eigen values have better results.  
 
 ## Libraries
 Needs numpy, scipy and sys. Compiled with python3.5
