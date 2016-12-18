@@ -31,7 +31,15 @@ This impression is confirmed by the following graph of error :
 Compared to the gradient descent mean error :  
 ![GDError](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/GDError.png)  
 
-They are not a state of the art compression. Eigen values have better results.  
+They are not a state of the art compression.  
+
+Here an example on larger image, original one :  
+![HighDimension](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/HighDimension.jpg)  
+
+Compressed with k = 50, after 100 iterations  
+![Compressed](https://raw.githubusercontent.com/Jeanselme/ImageCompression/master/Images/Compression-50-100.png)  
+
+The number of features needed to compress an image, seems to be linked to the image and not its dimension (We observe similar mean error with k = 50 for smaller dimension).
 
 ## Libraries
 Needs numpy, scipy and sys. Compiled with python3.5
